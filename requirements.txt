@@ -1,0 +1,5 @@
+openai
+tqdm
+fpdf==1.7.2
+colorama
+python-dotenv
