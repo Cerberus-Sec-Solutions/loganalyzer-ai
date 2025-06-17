@@ -1,132 +1,134 @@
+# 🔍 AI Log Analyzer — Smart Threat Detection from System Logs
 
-````markdown
-# 🔐 AI Log Analyser — Smart Threat Detection from Logs
+[![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python)](https://www.python.org/)  
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)  
+[![Contributions Welcome](https://img.shields.io/badge/Contributions-Welcome-ff69b4.svg)](https://github.com/your-username/ai-log-analyzer/issues)
 
-Welcome to **AI Log Analyser**, your automated AI-powered assistant for identifying brute-force attacks, SQL injection attempts, and suspicious SSH activity from raw log files.
+An intelligent and minimal CLI tool to **analyze log files** and detect brute-force attempts, SQL injections, and SSH-based intrusions in real-time.
 
-✨ Built for sysadmins, cybersecurity analysts, and DevOps engineers who want **clarity in chaos**.
+> 💡 Ideal for sysadmins, DevOps engineers, forensic analysts, and cybersecurity learners.
 
 ---
+
+<!-- ## 📸 Demo Preview
+
+> 📍 Example terminal output:
+
+![Demo Screenshot Placeholder](https://via.placeholder.com/800x300.png?text=CLI+Demo+Coming+Soon)
+
+--- -->
 
 ## 🚀 Features
 
-- 🧠 AI-Powered Summary: Instantly understand what's happening inside your logs without reading every line.
-- 🔐 Brute Force Detection: Identifies aggressive IPs attempting to break into your system.
-- 🛡️ SQL Injection Pattern Scan: Flags suspicious queries that resemble injection attacks.
-- 💻 SSH Attack Recognition: Detects unusual or targeted SSH login attempts (e.g., against root).
-- 📊 Threat Level Estimation: Rates the overall threat score from 0 to 10.
-- ⚠️ Actionable Recommendations: Security hardening tips generated based on detected behavior.
-- 🧼 Clean Output: No markdown bold characters — perfect for CLI use or automation scripts.
+- 🧠 AI-generated log summaries
+- 🔐 Detects brute-force login attempts from logs
+- 🧪 Flags SQL injection-like query patterns
+- 💻 Highlights SSH root login or repeated access attempts
+- 📊 Calculates a **Threat Level Score** (0 to 10)
+- 🛡️ Provides security recommendations
+- 🧼 CLI-friendly output (no markdown formatting issues)
 
 ---
 
-## 📂 How It Works
+## 🧰 Installation
 
-Feed any raw log file (Apache, Nginx, auth.log, or custom logs) into the tool, and it will:
-1. Scan for brute force IPs
-2. Look for SQL injection-like patterns
-3. Detect repeated SSH login failures
-4. Summarize threat patterns with severity
-5. Suggest practical mitigation strategies
-
----
-
-## ⚙️ Installation
-
-### 1. Clone the Repository
+### 📦 Step 1: Clone the Repo
 
 ```bash
-git clone https://github.com/your-username/ai-log-analyser.git
-cd ai-log-analyser
-````
+git clone https://github.com/Cerbrus-Sec-Solutions/ai-log-analyzer.git
+cd ai-log-analyzer
+```
 
-### 2. Create a Virtual Environment (Optional but Recommended)
+### 🧪 Step 2: (Optional) Create Virtual Environment
 
 ```bash
 python -m venv venv
-source venv/bin/activate  # For Linux/macOS
-venv\Scripts\activate     # For Windows
+source venv/bin/activate      # macOS/Linux
+venv\Scripts\activate         # Windows
 ```
 
-### 3. Install Required Packages
+### 📥 Step 3: Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-> ✅ Requirements include:
->
-> * Python built-ins: `re`, `collections`, `os`
-> * Third-party: `colorama`
+> 🔸 Uses `colorama` for terminal coloring and Python's built-in modules.
 
 ---
 
 ## 🧪 Usage
 
-### Step 1: Place Your Log File
+### 🗂 Step 1: Provide a Log File
 
-Put your log file in the same directory or use the full path.
+Place your `.log` file inside the project folder or specify the full path.
 
 Example:
-
 ```
-path/to/your/file/file_name.log
+logs/auth.log
 ```
 
-### Step 2: Run the Tool
+### ▶️ Step 2: Run the Analyzer
 
 ```bash
-python main.py path/to/your/file/file_name.log
+python main.py logs/auth.log
 ```
 
-You’ll get a detailed summary in your terminal 
+---
+
 ## 📊 Sample Input Format
 
-A few log entries your file might contain:
+Your `.log` file may contain entries like:
 
-
-## 🔧 Security Recommendations
-
-From your logs, the tool may suggest:
-
-* Blocking brute-force IPs
-* Disabling remote root logins
-* Enabling SSH key-based authentication
-* Setting up rate limiting (fail2ban / iptables)
-* Verifying suspicious root login events
+```
+Failed password for root from 182.73.212.10 port 22 ssh2
+Accepted password for user from 192.168.0.1 port 22 ssh2
+Invalid user admin from 60.30.224.116 port 54321
+Possible SQL Injection attempt: ' OR 1=1 --
+```
 
 ---
 
-## 👥 Who Should Use This?
+## 🔐 Security Suggestions (Auto-Generated)
 
-* 🔐 Cybersecurity learners & pros
-* 💻 DevOps and sysadmins
-* 🎓 Final-year students building real-world projects
-* 🧪 Anyone doing log analysis or forensic review
+Depending on the threats detected, the analyzer may recommend:
+
+- 🔒 Blocking IPs via `iptables`, `ufw`, or `.htaccess`
+- 🚫 Disabling root login in `sshd_config`
+- 🗝️ Enabling SSH key-based authentication
+- 🔄 Installing tools like `fail2ban` or enabling firewall rules
 
 ---
 
-## 🛠 Future Improvements
+## 🧠 Perfect For
 
-* [ ] JSON/CSV export of reports
-* [ ] Real-time log monitoring (daemon mode)
-* [ ] ELK/Graylog integration
-* [ ] Web UI Dashboard
+- Cybersecurity students
+- Threat analysts
+- System admins/DevOps
+- SOC teams and security tool builders
+
+---
+
+## 🌱 Future Enhancements
+
+- [ ] Export reports as JSON / CSV
+- [ ] Real-time log monitoring (background daemon)
+- [ ] ELK Stack integration
+- [ ] Web dashboard with charts and filters
 
 ---
 
 ## 🤝 Contributing
 
-Found a bug or have a feature idea?
-Create a pull request or open an issue — contributions are welcome!
+We welcome community contributions! Here's how:
+
+1. Fork the repo
+2. Create a feature branch
+3. Commit your changes
+4. Open a pull request with a clear explanation
 
 ---
 
-<!-- ## 👨‍💻 Author
+## 📄 License
 
-Created with 💻 by **A V S Sai Teja**
-Cybersecurity & Automation Enthusiast
-[LinkedIn](https://linkedin.com/in/yourprofile) • [GitHub](https://github.com/your-username) -->
-
-
-
+This project is licensed under the [MIT License](LICENSE).
