@@ -1,4 +1,4 @@
-openai
+openai==0.28.0
 tqdm
 fpdf==1.7.2
 colorama
